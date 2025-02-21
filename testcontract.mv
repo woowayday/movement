@@ -1,8 +1,19 @@
-fun name(params: type): return_type {
-    todo!()
+module movement::PrivModule {
+    use std::debug::print;
+
+    fun call_public_func() {
+        // This will error
+        let result = movement::PublModule::public_func(); // Error
+        // This will error
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Invalid call to
+        // This will error
+                     '(movement=0xDB8A45E0E06D2BD305CDB824FDA101CEC6A24721CB03188C5543A5E5A8C3F3B0)::PublModule::public_func'
+        print(&result);
+    }
 }
-// example
-fun plus(what_plus: u64): u64 {
-    let result = 0 + what_plus;
-    return result;
+
+module movement::PublModule {
+    public(friend) fun public_func(): u8 {
+        return 0
+    }
 }

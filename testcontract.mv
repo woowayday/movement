@@ -1,0 +1,8 @@
+fun name(params: type): return_type {
+    todo!()
+}
+// example
+fun plus(what_plus: u64): u64 {
+    let result = 0 + what_plus;
+    return result;
+}
